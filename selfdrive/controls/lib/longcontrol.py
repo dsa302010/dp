@@ -86,7 +86,7 @@ def long_control_state_trans_old_long(CP, active, long_control_state, v_ego, v_t
   return long_control_state
 
 
-cclass LongControl:
+class LongControl:
   def __init__(self, CP):
     self.CP = CP
     self.long_control_state = LongCtrlState.off
