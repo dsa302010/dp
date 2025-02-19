@@ -58,7 +58,7 @@ T_DIFFS = np.diff(T_IDXS, prepend=[0.])
 COMFORT_BRAKE = 2.5
 STOP_DISTANCE = 6.0
 
-def get_jerk_factor(aggressive_jerk_acceleration=0.5, aggressive_jerk_danger=0.5, aggressive_jerk_speed=0.5,
+def get_jerk_factor(aggressive_jerk_acceleration=1.0, aggressive_jerk_danger=1.0, aggressive_jerk_speed=1.0,
                     standard_jerk_acceleration=1.0, standard_jerk_danger=1.0, standard_jerk_speed=1.0,
                     relaxed_jerk_acceleration=1.0, relaxed_jerk_danger=1.0, relaxed_jerk_speed=1.0,
                     custom_personalities=False, personality=log.LongitudinalPersonality.standard):
@@ -77,7 +77,7 @@ def get_jerk_factor(aggressive_jerk_acceleration=0.5, aggressive_jerk_danger=0.5
     elif personality==log.LongitudinalPersonality.standard:
       return 1.0, 1.0, 1.0
     elif personality==log.LongitudinalPersonality.aggressive:
-      return 0.5, 0.5, 0.5
+      return 1.0, 1.0, 1.0
     else:
       raise NotImplementedError("Longitudinal personality not supported")
 
