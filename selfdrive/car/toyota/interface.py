@@ -149,7 +149,7 @@ class CarInterface(CarInterfaceBase):
 
     ret.vEgoStopping = 0.09
     ret.vEgoStarting = 0.11
-    ret.stoppingDecelRate = 0.02  # reach stopping target smoothly
+    ret.stoppingDecelRate = 0.015  # reach stopping target smoothly
 
     # Hybrids have much quicker longitudinal actuator response
     if ret.flags & ToyotaFlags.HYBRID.value:
