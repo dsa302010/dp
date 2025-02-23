@@ -341,12 +341,16 @@ class CarController(CarControllerBase):
     new_actuators.accel = self.accel
 
     # FrogPilot Toyota carcontroller functions
-    if False: #self.previous_set_speed != CS.out.cruiseState.speedCluster:
-      self.cruise_timer = CRUISE_LONG_PRESS
-    elif self.cruise_timer > 0:
-      self.cruise_timer -= 1
+    if self.previous_set_speed != CS.out.cruiseState.speedCluster:
+       self.cruise_timer = CRUISE_LONG_PRESS
+
+    if self.cruise_timer > 0:
+       self.cruise_timer -= 1
+       speed_increment = 10  # 長按時增加 10
     else:
-      self.previous_set_speed = CS.out.cruiseState.speedCluster
+       speed_increment = 5   # 短按時增加 5
+
+     self.previous_set_speed = CS.out.cruiseState.speedCluster + speed_increment
 
     # Lock doors when in drive / unlock doors when in park
     if not self.doors_locked and CS.out.gearShifter != PARK:
