@@ -350,7 +350,7 @@ class CarController(CarControllerBase):
     else:
        speed_increment = 5   # 短按時增加 5
 
-     self.previous_set_speed = CS.out.cruiseState.speedCluster + speed_increment
+       self.previous_set_speed = CS.out.cruiseState.speedCluster + speed_increment
 
     # Lock doors when in drive / unlock doors when in park
     if not self.doors_locked and CS.out.gearShifter != PARK:
