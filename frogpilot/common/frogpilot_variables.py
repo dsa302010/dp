@@ -791,16 +791,16 @@ class FrogPilotVariables:
     toggle.traffic_mode_via_distance_very_long = toggle.openpilot_longitudinal and distance_button_control_very_long == BUTTON_FUNCTIONS["TRAFFIC_MODE"]
 
     toggle.experimental_gm_tune = toggle.openpilot_longitudinal and toggle.car_make == "gm" and (params.get_bool("ExperimentalGMTune") if tuning_level >= level["ExperimentalGMTune"] else default.get_bool("ExperimentalGMTune"))
-    toggle.stoppingDecelRate = 0.3 if toggle.experimental_gm_tune else toggle.stoppingDecelRate
+    toggle.stoppingDecelRate = 0.036 if toggle.experimental_gm_tune else toggle.stoppingDecelRate
     toggle.vEgoStarting = 0.15 if toggle.experimental_gm_tune else toggle.vEgoStarting
-    toggle.vEgoStopping = 0.15 if toggle.experimental_gm_tune else toggle.vEgoStopping
+    toggle.vEgoStopping = 0.11 if toggle.experimental_gm_tune else toggle.vEgoStopping
 
     toggle.force_fingerprint = (params.get_bool("ForceFingerprint") if tuning_level >= level["ForceFingerprint"] else default.get_bool("ForceFingerprint")) and toggle.car_model is not None
 
     toggle.frogsgomoo_tweak = toggle.openpilot_longitudinal and toggle.car_make == "toyota" and (params.get_bool("FrogsGoMoosTweak") if tuning_level >= level["FrogsGoMoosTweak"] else default.get_bool("FrogsGoMoosTweak"))
-    toggle.stoppingDecelRate = 0.01 if toggle.frogsgomoo_tweak else toggle.stoppingDecelRate
-    toggle.vEgoStarting = 0.1 if toggle.frogsgomoo_tweak else toggle.vEgoStarting
-    toggle.vEgoStopping = 0.5 if toggle.frogsgomoo_tweak else toggle.vEgoStopping
+    toggle.stoppingDecelRate = 0.036 if toggle.frogsgomoo_tweak else toggle.stoppingDecelRate
+    toggle.vEgoStarting = 0.15 if toggle.frogsgomoo_tweak else toggle.vEgoStarting
+    toggle.vEgoStopping = 0.11 if toggle.frogsgomoo_tweak else toggle.vEgoStopping
 
     toggle.holiday_themes = params.get_bool("HolidayThemes") if tuning_level >= level["HolidayThemes"] else default.get_bool("HolidayThemes")
     toggle.current_holiday_theme = holiday_theme if toggle.holiday_themes else "stock"
